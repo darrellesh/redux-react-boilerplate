@@ -10,11 +10,13 @@ import { createStructuredSelector } from 'reselect';
 import { FormattedNumber } from 'react-intl';
 
 import { makeSelectCurrentUser } from 'containers/App/selectors';
+import { MdStarBorder } from 'react-icons/lib/md/';
 import ListItem from 'components/ListItem';
 import IssueIcon from './IssueIcon';
 import IssueLink from './IssueLink';
 import RepoLink from './RepoLink';
 import Wrapper from './Wrapper';
+
 
 export class RepoListItem extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -33,6 +35,9 @@ export class RepoListItem extends React.PureComponent { // eslint-disable-line r
         <RepoLink href={item.html_url} target="_blank">
           {nameprefix + item.name}
         </RepoLink>
+        <IssueLink href={`${item.html_url}/stargazers`} target="_blank">
+          <MdStarBorder />
+        </IssueLink>
         <IssueLink href={`${item.html_url}/issues`} target="_blank">
           <IssueIcon />
           <FormattedNumber value={item.open_issues_count} />
