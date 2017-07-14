@@ -9,32 +9,28 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import A from 'components/A';
 import H1 from 'components/H1';
-import H2 from 'components/H1';
+import H2 from 'components/H2';
 import Img from 'components/Img';
 import StyledButton from 'components/Button';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectListItems, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
+import WellKnownEndpointList from 'components/WellKnownEndpointList';
 import messages from './messages';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import ReactRouter from './react-routing.png';
 import { loadItems } from '../App/actions';
-import {createStructuredSelector} from "reselect";
-import WellKnownEndpointList from 'components/WellKnownEndpointList';
-import { makeSelectListItems, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
-
 
 export class LearningPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
-  // Since state and props are static,
-  // there's no need to re-render this component
-  shouldComponentUpdate() {
-    return false;
+
+  componentDidMount() {
+    return true;
   }
 
   render() {
-
     const { loading, error, listItems } = this.props;
-    console.log("props---")
     const wellKnownEndpointListProps = {
       loading,
       error,
@@ -98,7 +94,7 @@ export function mapDispatchToProps(dispatch) {
       dispatch(loadItems());
     },
   };
-};
+}
 
 
 const mapStateToProps = createStructuredSelector({

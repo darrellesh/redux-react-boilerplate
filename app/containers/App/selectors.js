@@ -28,7 +28,7 @@ const makeSelectRepos = () => createSelector(
 
 const makeSelectListItems = () => createSelector(
   selectGlobal,
-  (globalState) => globalState.getIn(['wellKnowEndpointData', 'listItems'])
+  (globalState) => globalState.getIn(['wellKnowData', 'listItems'])
 );
 
 const makeSelectLocationState = () => {

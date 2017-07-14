@@ -31,7 +31,7 @@ const initialState = fromJS({
   },
   wellKnowData: {
     listItems: false,
-  }
+  },
 });
 
 function appReducer(state = initialState, action) {
@@ -54,10 +54,10 @@ function appReducer(state = initialState, action) {
       return state
         .set('loading', true)
         .set('error', false)
-        .setIn(['wellKnowEndpointData', 'listItems'], false);
+        .setIn(['wellKnowData', 'listItems'], false);
     case LOAD_ITEMS_SUCCESS:
       return state
-        .setIn(['wellKnowEndpointData', 'listItems'], action.listItems)
+        .setIn(['wellKnowData', 'listItems'], action.listItems)
         .set('loading', false);
     case LOAD_ITEMS_ERROR:
       return state
