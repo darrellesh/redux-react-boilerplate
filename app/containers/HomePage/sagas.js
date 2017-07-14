@@ -35,7 +35,7 @@ export function* githubData() {
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   const watcher = yield takeLatest(LOAD_REPOS, getRepos);
-
+  console.log("IM HERE - githubData");
   // Suspend execution until location changes
   yield take(LOCATION_CHANGE);
   yield cancel(watcher);

@@ -20,5 +20,13 @@ export default defineMessages({
     id: 'boilerplate.containers.LearningPage.routing.message',
     defaultMessage: 'Routing information ...',
   },
+  trymeHeader: {
+    id: 'boilerplate.containers.LearningPage.tryme.header',
+    defaultMessage: 'Try me!',
+  },
+  trymeMessage: {
+    id: 'boilerplate.containers.LearningPage.tryme.message',
+    defaultMessage: 'Show List of items ... ',
+  },
 
 });

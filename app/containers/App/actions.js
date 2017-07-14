@@ -19,6 +19,9 @@ import {
   LOAD_REPOS,
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
+  LOAD_ITEMS,
+  LOAD_ITEMS_SUCCESS,
+  LOAD_ITEMS_ERROR,
 } from './constants';
 
 /**
@@ -58,6 +61,45 @@ export function reposLoaded(repos, username) {
 export function repoLoadingError(error) {
   return {
     type: LOAD_REPOS_ERROR,
+    error,
+  };
+}
+
+/**
+ * Load the list items, this action starts the request saga
+ *
+ * @return {object} An action object with a type of LOAD_ITEMS
+ */
+export function loadItems() {
+  return {
+    type: LOAD_ITEMS,
+  };
+}
+
+/**
+ * Dispatched when the list items are loaded by the request saga
+ *
+ * @param  {array} listItems The item data
+ *
+ * @return {object}      An action object with a type of LOAD_ITEMS_SUCCESS passing the listItems
+ */
+export function itemsLoaded(listItems) {
+  return {
+    type: LOAD_ITEMS_SUCCESS,
+    listItems,
+  };
+}
+
+/**
+ * Dispatched when loading the repositories fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
+ */
+export function itemLoadingError(error) {
+  return {
+    type: LOAD_ITEMS_ERROR,
     error,
   };
 }

@@ -16,6 +16,9 @@ import {
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS,
   LOAD_REPOS_ERROR,
+  LOAD_ITEMS,
+  LOAD_ITEMS_SUCCESS,
+  LOAD_ITEMS_ERROR,
 } from './constants';
 
 // The initial state of the App
@@ -26,6 +29,9 @@ const initialState = fromJS({
   userData: {
     repositories: false,
   },
+  wellKnowData: {
+    listItems: false,
+  }
 });
 
 function appReducer(state = initialState, action) {
@@ -41,6 +47,19 @@ function appReducer(state = initialState, action) {
         .set('loading', false)
         .set('currentUser', action.username);
     case LOAD_REPOS_ERROR:
+      return state
+        .set('error', action.error)
+        .set('loading', false);
+    case LOAD_ITEMS:
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .setIn(['wellKnowEndpointData', 'listItems'], false);
+    case LOAD_ITEMS_SUCCESS:
+      return state
+        .setIn(['wellKnowEndpointData', 'listItems'], action.listItems)
+        .set('loading', false);
+    case LOAD_ITEMS_ERROR:
       return state
         .set('error', action.error)
         .set('loading', false);

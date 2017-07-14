@@ -26,6 +26,11 @@ const makeSelectRepos = () => createSelector(
   (globalState) => globalState.getIn(['userData', 'repositories'])
 );
 
+const makeSelectListItems = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['wellKnowEndpointData', 'listItems'])
+);
+
 const makeSelectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -49,4 +54,5 @@ export {
   makeSelectError,
   makeSelectRepos,
   makeSelectLocationState,
+  makeSelectListItems,
 };
