@@ -66,6 +66,6 @@ describe('<RepoListItem />', () => {
 
   it('should render the IssueIcon', () => {
     const renderedComponent = renderComponent({ item });
-    expect(renderedComponent.find('svg').length).toBe(1);
+    expect(renderedComponent.find('svg').length).toBe(2);
   });
 });

@@ -17,6 +17,9 @@ describe('appReducer', () => {
       userData: fromJS({
         repositories: false,
       }),
+      wellKnowData: fromJS({
+        listItems: false,
+      }),
     });
   });
 

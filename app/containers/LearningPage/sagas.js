@@ -2,7 +2,7 @@
  * Gets the list items from a well known endpoint
  */
 
-import { call, put, cancel, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { LOAD_ITEMS } from 'containers/App/constants';
 import { itemsLoaded, itemLoadingError } from 'containers/App/actions';
 
@@ -29,9 +29,7 @@ export function* listItemData() {
   // Watches for LOAD_ITEMS actions and calls getListItems when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
-  const watcher = yield takeLatest(LOAD_ITEMS, getListItems);
-  // Suspend execution until location changes
-  // yield cancel(watcher);
+  yield takeLatest(LOAD_ITEMS, getListItems);
 }
 
 // Bootstrap sagas
