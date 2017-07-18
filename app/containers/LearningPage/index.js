@@ -13,14 +13,14 @@ import H2 from 'components/H2';
 import Img from 'components/Img';
 import StyledButton from 'components/Button';
 import { createStructuredSelector } from 'reselect';
-import { makeSelectListItems, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
+import { makeSelectListItems, makeSelectLoading, makeSelectError, makeSelectComments } from 'containers/App/selectors';
 import WellKnownEndpointList from 'components/WellKnownEndpointList';
 import messages from './messages';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import ReactRouter from './react-routing.png';
-import { loadItems } from '../App/actions';
+import { loadItems, loadComments } from '../App/actions';
 
 export class LearningPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -92,6 +92,7 @@ export function mapDispatchToProps(dispatch) {
     onLoadItems: (evt) => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadItems());
+      dispatch(loadComments());
     },
   };
 }
@@ -101,6 +102,7 @@ const mapStateToProps = createStructuredSelector({
   listItems: makeSelectListItems(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  comments: makeSelectComments,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LearningPage);

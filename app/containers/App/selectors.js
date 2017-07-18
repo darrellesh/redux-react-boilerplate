@@ -31,6 +31,11 @@ const makeSelectListItems = () => createSelector(
   (globalState) => globalState.getIn(['wellKnowData', 'listItems'])
 );
 
+const makeSelectComments = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['placeholderData', 'comments'])
+);
+
 const makeSelectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -55,4 +60,5 @@ export {
   makeSelectRepos,
   makeSelectLocationState,
   makeSelectListItems,
+  makeSelectComments,
 };

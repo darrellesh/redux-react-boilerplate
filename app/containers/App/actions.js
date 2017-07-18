@@ -22,6 +22,7 @@ import {
   LOAD_ITEMS,
   LOAD_ITEMS_SUCCESS,
   LOAD_ITEMS_ERROR,
+  LOAD_COMMENTS,
   LOAD_COMMENTS_SUCCESS,
   LOAD_COMMENTS_ERROR,
 } from './constants';
@@ -103,6 +104,12 @@ export function itemLoadingError(error) {
   return {
     type: LOAD_ITEMS_ERROR,
     error,
+  };
+}
+
+export function loadComments() {
+  return {
+    type: LOAD_COMMENTS,
   };
 }
 

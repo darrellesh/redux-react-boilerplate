@@ -19,6 +19,8 @@ import {
   LOAD_ITEMS,
   LOAD_ITEMS_SUCCESS,
   LOAD_ITEMS_ERROR,
+  LOAD_COMMENTS,
+  LOAD_COMMENTS_SUCCESS,
 } from './constants';
 
 // The initial state of the App
@@ -31,6 +33,9 @@ const initialState = fromJS({
   },
   wellKnowData: {
     listItems: false,
+  },
+  placeholderData: {
+    comments: false,
   },
 });
 
@@ -62,6 +67,14 @@ function appReducer(state = initialState, action) {
     case LOAD_ITEMS_ERROR:
       return state
         .set('error', action.error)
+        .set('loading', false);
+    case LOAD_COMMENTS:
+      return state
+        .set('loading', true)
+        .set('error', false);
+    case LOAD_COMMENTS_SUCCESS:
+      return state
+        .setIn(['placeholderData', 'comments'], action.comments)
         .set('loading', false);
     default:
       return state;
