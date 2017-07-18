@@ -22,6 +22,8 @@ import {
   LOAD_ITEMS,
   LOAD_ITEMS_SUCCESS,
   LOAD_ITEMS_ERROR,
+  LOAD_COMMENTS_SUCCESS,
+  LOAD_COMMENTS_ERROR,
 } from './constants';
 
 /**
@@ -100,6 +102,20 @@ export function itemsLoaded(listItems) {
 export function itemLoadingError(error) {
   return {
     type: LOAD_ITEMS_ERROR,
+    error,
+  };
+}
+
+export function commentsLoaded(comments) {
+  return {
+    type: LOAD_COMMENTS_SUCCESS,
+    comments,
+  };
+}
+
+export function commentLoadingError(error) {
+  return {
+    type: LOAD_COMMENTS_ERROR,
     error,
   };
 }

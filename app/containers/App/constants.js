@@ -16,3 +16,5 @@ export const DEFAULT_LOCALE = 'en';
 export const LOAD_ITEMS = 'boilerplate/App/LOAD_ITEMS';
 export const LOAD_ITEMS_SUCCESS = 'boilerplate/App/LOAD_ITEMS_SUCCESS';
 export const LOAD_ITEMS_ERROR = 'boilerplate/App/LOAD_ITEMS_ERROR';
+export const LOAD_COMMENTS_SUCCESS = 'boilerplate/App/LOAD_COMMENTS_SUCCESS';
+export const LOAD_COMMENTS_ERROR = 'boilerplate/App/LOAD_COMMENTS_ERROR';

@@ -3,8 +3,8 @@
  */
 
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { LOAD_ITEMS } from 'containers/App/constants';
-import { itemsLoaded, itemLoadingError } from 'containers/App/actions';
+import { LOAD_ITEMS, LOAD_COMMENTS } from 'containers/App/constants';
+import { itemsLoaded, itemLoadingError, commentsLoaded, commentLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
 
@@ -35,4 +35,20 @@ export function* listItemData() {
 // Bootstrap sagas
 export default [
   listItemData,
+  commentsData,
 ];
+
+
+export function* getComments() {
+  const requestURL = 'https://jsonplaceholder.typicode.com/comments';
+  try {
+    const comments = yield call(request, requestURL);
+    yield put(commentsLoaded(comments));
+  } catch (err) {
+    yield put(commentLoadingError(err));
+  }
+}
+
+export function* commentsData() {
+  yield takeLatest(LOAD_COMMENTS, getComments);
+}
