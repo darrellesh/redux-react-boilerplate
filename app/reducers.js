@@ -5,6 +5,7 @@
 
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
+import { Reducers as gridReducers } from 'react-redux-grid';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import globalReducer from 'containers/App/reducer';
@@ -47,5 +48,6 @@ export default function createReducer(asyncReducers) {
     global: globalReducer,
     language: languageProviderReducer,
     ...asyncReducers,
+    ...gridReducers,
   });
 }

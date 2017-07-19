@@ -7,6 +7,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { Grid } from 'react-redux-grid';
+import * as _ from 'lodash';
 import A from 'components/A';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
@@ -21,6 +23,7 @@ import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import ReactRouter from './react-routing.png';
 import { loadItems, loadComments } from '../App/actions';
+// import { columns, data, pageSize, events, dataSource } from './demodata';
 
 export class LearningPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -36,6 +39,12 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
       error,
       listItems,
     };
+
+    const columns = [{ name: 'Id', width: '50%', dataIndex: 'id' }, { name: 'Label', width: '50%', dataIndex: 'label' }];
+    const pageSize = 20;
+    const data = _.uniq(listItems);
+
+    const simpleData = { columns, data, pageSize, plugins: {}, stateKey: 'gridTest' };
 
     return (
       <div>
@@ -69,6 +78,7 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
               <FormattedMessage {...messages.trymeMessage}/>
               <StyledButton onClick={this.props.onLoadItems}> <FormattedMessage {...messages.trymeHeader}/> </StyledButton>
         <WellKnownEndpointList {...wellKnownEndpointListProps} />
+        <Grid {...simpleData} />
       </div>
     );
   }
