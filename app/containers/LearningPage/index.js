@@ -33,16 +33,19 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
   }
 
   render() {
-    const { loading, error, listItems } = this.props;
+    const { loading, error, listItems, comments } = this.props;
     const wellKnownEndpointListProps = {
       loading,
       error,
       listItems,
+      comments,
     };
 
-    const columns = [{ name: 'Id', width: '50%', dataIndex: 'id' }, { name: 'Label', width: '50%', dataIndex: 'label' }];
+    const columns = [{ name: 'Name', width: '25%', dataIndex: 'name' },
+     { name: 'Email', width: '25%', dataIndex: 'email' },
+     { name: 'Comment', width: '25%', dataIndex: 'body' }];
     const pageSize = 20;
-    const data = _.uniq(listItems);
+    const data = _.uniq(comments);
 
     const simpleData = { columns, data, pageSize, plugins: {}, stateKey: 'gridTest' };
 
@@ -94,6 +97,10 @@ LearningPage.propTypes = {
     React.PropTypes.array,
     React.PropTypes.bool,
   ]),
+  comments: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
   onLoadItems: React.PropTypes.func,
 };
 
@@ -112,7 +119,7 @@ const mapStateToProps = createStructuredSelector({
   listItems: makeSelectListItems(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
-  comments: makeSelectComments,
+  comments: makeSelectComments(),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LearningPage);
