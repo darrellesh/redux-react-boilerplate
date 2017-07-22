@@ -6,8 +6,8 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { Reducers as gridReducers } from 'react-redux-grid';
+import { reducer as formReducer } from 'redux-form/immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
@@ -47,6 +47,7 @@ export default function createReducer(asyncReducers) {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
+    form: formReducer,
     ...asyncReducers,
     ...gridReducers,
   });

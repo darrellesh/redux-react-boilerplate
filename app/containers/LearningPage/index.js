@@ -22,14 +22,26 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import ReactRouter from './react-routing.png';
+import ImmutableForm from './ImmutableForm';
 import { loadItems, loadComments } from '../App/actions';
-// import { columns, data, pageSize, events, dataSource } from './demodata';
 
 export class LearningPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
-
   componentDidMount() {
     return true;
+  }
+
+  showResults = (values) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      // simulate server latency
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+      resolve();
+    }, 500);
+  })
+
+  submit = (values) => {
+    console.log(values);
   }
 
   render() {
@@ -74,6 +86,7 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
           </ListItem>
         </List>
 
+        <ImmutableForm handleSubmit={this.showResults()} />
 
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
