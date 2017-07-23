@@ -40,10 +40,6 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
     }, 500);
   })
 
-  submit = (values) => {
-    console.log(values);
-  }
-
   render() {
     const { loading, error, listItems, comments } = this.props;
     const wellKnownEndpointListProps = {
@@ -86,7 +82,7 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
           </ListItem>
         </List>
 
-        <ImmutableForm handleSubmit={this.showResults()} />
+        <ImmutableForm onSubmit={this.showResults} />
 
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
