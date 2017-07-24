@@ -28,5 +28,9 @@ export default defineMessages({
     id: 'boilerplate.containers.LearningPage.tryme.message',
     defaultMessage: 'Show List of items ... ',
   },
+  columnName: {
+    id: 'boilerplate.containers.LearningPage.form.column.name',
+    defaultMessage: 'Name',
+  },
 
 });

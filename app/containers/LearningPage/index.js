@@ -42,6 +42,21 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
 
   render() {
     const { loading, error, listItems, comments } = this.props;
+    console.log('rendering---');
+    const trans = this.context.intl.formatMessage(
+      { id: 'boilerplate.containers.LearningPage.form.column.name', defaultMessage: 'testing' });
+
+    console.log(`translation---${trans}`);
+
+    const columns = [{
+      name: this.context.intl.formatMessage(
+        { id: 'boilerplate.containers.LearningPage.form.column.name', defaultMessage: 'testing' }),
+      width: '25%',
+      dataIndex: 'name',
+    },
+      { name: 'Email', width: '25%', dataIndex: 'email' },
+      { name: 'Comment', width: '25%', dataIndex: 'body' }];
+
     const wellKnownEndpointListProps = {
       loading,
       error,
@@ -49,9 +64,6 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
       comments,
     };
 
-    const columns = [{ name: 'Name', width: '25%', dataIndex: 'name' },
-     { name: 'Email', width: '25%', dataIndex: 'email' },
-     { name: 'Comment', width: '25%', dataIndex: 'body' }];
     const pageSize = 20;
     const data = _.uniq(comments);
 
@@ -113,6 +125,9 @@ LearningPage.propTypes = {
   onLoadItems: React.PropTypes.func,
 };
 
+LearningPage.contextTypes = {
+  intl: React.PropTypes.object.isRequired,
+};
 export function mapDispatchToProps(dispatch) {
   return {
     onLoadItems: (evt) => {

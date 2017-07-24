@@ -33,5 +33,6 @@
   "boilerplate.containers.LearningPage.routing.header": "Learning",
   "boilerplate.containers.LearningPage.routing.message": "Routing implementation is provided by the react-router and react-router-redux libraries.",
   "boilerplate.containers.LearningPage.tryme.header": "Try me!",
-  "boilerplate.containers.LearningPage.tryme.message": "Show List of items from well know endpoint"
+  "boilerplate.containers.LearningPage.tryme.message": "Show List of items from well know endpoint",
+  "boilerplate.containers.LearningPage.form.column.name": "en-Name"
 }

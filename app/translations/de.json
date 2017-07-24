@@ -31,5 +31,8 @@
   "boilerplate.containers.NotFoundPage.header": "Seite nicht gefunden.",
   "boilerplate.containers.LearningPage.header": "",
   "boilerplate.containers.LearningPage.routing.header": "",
-  "boilerplate.containers.LearningPage.routing.message": ""
+  "boilerplate.containers.LearningPage.routing.message": "",
+  "boilerplate.containers.LearningPage.tryme.header": "",
+  "boilerplate.containers.LearningPage.tryme.message": "",
+  "boilerplate.containers.LearningPage.form.column.name": "de-Name"
 }
