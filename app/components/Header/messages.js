@@ -18,4 +18,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.learning',
     defineMessages: 'Learning',
   },
+  courses: {
+    id: 'boilerplate.components.Header.courses',
+    defineMessages: 'Courses',
+},
 });

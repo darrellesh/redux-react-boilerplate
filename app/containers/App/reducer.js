@@ -21,6 +21,7 @@ import {
   LOAD_ITEMS_ERROR,
   LOAD_COMMENTS,
   LOAD_COMMENTS_SUCCESS,
+  CREATE_COURSE,
 } from './constants';
 
 // The initial state of the App
@@ -36,6 +37,9 @@ const initialState = fromJS({
   },
   placeholderData: {
     comments: false,
+  },
+  courses: {
+    courses: [],
   },
 });
 
@@ -76,6 +80,10 @@ function appReducer(state = initialState, action) {
       return state
         .setIn(['placeholderData', 'comments'], action.comments)
         .set('loading', false);
+    case CREATE_COURSE:
+      return state
+        .setIn(['courses', 'courses'], action.course);
+
     default:
       return state;
   }

@@ -25,6 +25,7 @@ import {
   LOAD_COMMENTS,
   LOAD_COMMENTS_SUCCESS,
   LOAD_COMMENTS_ERROR,
+  CREATE_COURSE,
 } from './constants';
 
 /**
@@ -124,5 +125,12 @@ export function commentLoadingError(error) {
   return {
     type: LOAD_COMMENTS_ERROR,
     error,
+  };
+}
+
+export function createCourse(course) {
+  return {
+    type: CREATE_COURSE,
+    course,
   };
 }

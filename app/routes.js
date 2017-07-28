@@ -70,6 +70,15 @@ export default function createRoutes(store) {
       },
     },
     {
+      path: '/courses',
+      name: 'courses',
+      getComponent(nextState, cb) {
+          import('containers/CoursesPage')
+            .then(loadModule(cb))
+            .catch(errorLoading);
+      },
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

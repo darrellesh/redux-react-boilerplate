@@ -52,6 +52,11 @@ const makeSelectLocationState = () => {
   };
 };
 
+const makeSelectCourses = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['courses', 'courses'])
+);
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -61,4 +66,5 @@ export {
   makeSelectLocationState,
   makeSelectListItems,
   makeSelectComments,
+  makeSelectCourses,
 };
