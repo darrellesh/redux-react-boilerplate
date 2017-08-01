@@ -20,3 +20,4 @@ export const LOAD_COMMENTS = 'boilerplate/App/LOAD_COMMENTS';
 export const LOAD_COMMENTS_SUCCESS = 'boilerplate/App/LOAD_COMMENTS_SUCCESS';
 export const LOAD_COMMENTS_ERROR = 'boilerplate/App/LOAD_COMMENTS_ERROR';
 export const CREATE_COURSE = 'boilerplate/App/CREATE_COURSE';
+

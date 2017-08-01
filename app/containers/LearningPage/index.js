@@ -96,11 +96,11 @@ export class LearningPage extends React.PureComponent { // eslint-disable-line r
 
         <ImmutableForm onSubmit={this.showResults} />
 
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
-              <FormattedMessage {...messages.trymeMessage}/>
-              <StyledButton onClick={this.props.onLoadItems}> <FormattedMessage {...messages.trymeHeader}/> </StyledButton>
+        <H2>
+          <FormattedMessage {...messages.trymeHeader} />
+        </H2>
+        <FormattedMessage {...messages.trymeMessage} />
+        <StyledButton onClick={this.props.onLoadItems}> <FormattedMessage {...messages.trymeHeader} /> </StyledButton>
         <WellKnownEndpointList {...wellKnownEndpointListProps} />
         <Grid {...simpleData} />
       </div>

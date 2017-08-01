@@ -21,5 +21,5 @@ export default defineMessages({
   courses: {
     id: 'boilerplate.components.Header.courses',
     defineMessages: 'Courses',
-},
+  },
 });

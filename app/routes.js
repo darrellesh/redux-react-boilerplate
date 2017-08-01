@@ -52,10 +52,10 @@ export default function createRoutes(store) {
       name: 'learning',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-        import('containers/LearningPage/reducer'),
-        import('containers/LearningPage/sagas'),
-        import('containers/LearningPage'),
-      ]);
+          import('containers/LearningPage/reducer'),
+          import('containers/LearningPage/sagas'),
+          import('containers/LearningPage'),
+        ]);
 
         const renderRoute = loadModule(cb);
 
@@ -73,7 +73,7 @@ export default function createRoutes(store) {
       path: '/courses',
       name: 'courses',
       getComponent(nextState, cb) {
-          import('containers/CoursesPage')
+        import('containers/CoursesPage')
             .then(loadModule(cb))
             .catch(errorLoading);
       },

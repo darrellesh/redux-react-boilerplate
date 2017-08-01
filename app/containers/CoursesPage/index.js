@@ -43,8 +43,8 @@ export class CoursesPage extends React.Component { // eslint-disable-line react/
   render() {
     const { courses } = this.props;
     console.log(`courses from props---${courses}`);
-    const { title } = courses;
-    console.log(`courses title from props---${title}`);
+    // const { title } = courses;
+    // console.log(`courses title from props---${title}`);
 
     return (
       <div>
@@ -56,7 +56,6 @@ export class CoursesPage extends React.Component { // eslint-disable-line react/
         />
 
         <H1>Courses</H1>
-        {title}
         <H2>Add Course</H2>
         <Input
           type="text"
