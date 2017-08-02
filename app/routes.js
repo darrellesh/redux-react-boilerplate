@@ -73,9 +73,21 @@ export default function createRoutes(store) {
       path: '/courses',
       name: 'courses',
       getComponent(nextState, cb) {
-        import('containers/CoursesPage')
-            .then(loadModule(cb))
-            .catch(errorLoading);
+        const importModules = Promise.all([
+          import('containers/CoursesPage/reducer'),
+          import('containers/CoursesPage/sagas'),
+          import('containers/CoursesPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('courses', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     },
     {

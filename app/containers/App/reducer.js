@@ -37,6 +37,8 @@ const initialState = fromJS({
   placeholderData: {
     comments: false,
   },
+  courses: [],
+  coursesById: {},
 });
 
 function appReducer(state = initialState, action) {

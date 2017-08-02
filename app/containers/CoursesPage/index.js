@@ -10,6 +10,7 @@ import { createStructuredSelector } from 'reselect';
 import { makeSelectCourses } from 'containers/App/selectors';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
+import AddCourseInput from 'components/AddCourseInput';
 import Input from './Input';
 import { createCourse, deleteCourse } from './actions';
 
@@ -19,7 +20,7 @@ export class CoursesPage extends React.Component { // eslint-disable-line react/
     super(props, context);
 
     this.state = {
-      course: { title: '' },
+      course: { id: 4, title: 'what ever' },
     };
 
     this.onTitleChange = this.onTitleChange.bind(this);
@@ -57,6 +58,8 @@ export class CoursesPage extends React.Component { // eslint-disable-line react/
             { name: 'description', content: 'Courses page of pluralsight react-redux training' },
           ]}
         />
+
+        <AddCourseInput createCourse={this.onClickSave} />
 
         <H1>Courses</H1>
         <H2>Add Course</H2>

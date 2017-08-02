@@ -10,6 +10,7 @@ import { reducer as formReducer } from 'redux-form/immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import coursesReducer from 'containers/CoursesPage/reducer';
 /*
  * routeReducer
  *
@@ -49,5 +50,6 @@ export default function createReducer(asyncReducers) {
     form: formReducer,
     ...asyncReducers,
     ...gridReducers,
+    course: coursesReducer,
   });
 }

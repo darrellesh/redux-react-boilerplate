@@ -1,4 +1,4 @@
-import { coursesReducer, coursesReducer1, coursesReducer2, coursesReducer3 } from '../reducer';
+import coursesReducer3, { coursesReducer, coursesReducer1, coursesReducer2 } from '../reducer';
 import { createCourse, deleteCourse } from '../actions';
 
 describe('coursesReducer', () => {

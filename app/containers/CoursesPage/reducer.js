@@ -36,6 +36,7 @@ const initialState3 = {
 export function coursesReducer(state = initialState, action) {
   switch (action.type) {
     case CREATE_COURSE:
+      console.log('I am here...');
       return {
         courses: state.concat(action.course),
       };
@@ -73,9 +74,10 @@ export function coursesReducer2(state = initialState, action) {
   }
 }
 
-export function coursesReducer3(state = initialState3, action) {
+export default function coursesReducer3(state = initialState3, action) {
   switch (action.type) {
     case CREATE_COURSE:
+      console.log(action.course);
       return {
         courses: state.courses.concat(action.course.id),
         coursesById: {
