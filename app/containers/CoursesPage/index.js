@@ -11,7 +11,7 @@ import { makeSelectCourses } from 'containers/App/selectors';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import Input from './Input';
-import { createCourse } from '../App/actions';
+import { createCourse, deleteCourse } from './actions';
 
 export class CoursesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -28,6 +28,9 @@ export class CoursesPage extends React.Component { // eslint-disable-line react/
 
   onClickSave() {
     this.props.dispatch(createCourse(this.state.course));
+  }
+  onClickDelete() {
+    this.props.dispatch(deleteCourse(this.state.course));
   }
 
   onTitleChange(event) {

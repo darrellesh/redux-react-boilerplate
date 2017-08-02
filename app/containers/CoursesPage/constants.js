@@ -10,3 +10,6 @@
  */
 
 export const CREATE_COURSE = 'boilerplate/Courses/CREATE_COURSE';
+export const STAR_COURSE = 'boilerplate/Courses/STAR_COURSE';
+export const DELETE_COURSE = 'boilerplate/Courses/DELETE_COURSE';
+

@@ -9,7 +9,10 @@
  * case YOUR_ACTION_CONSTANT:
  *   return state.set('yourStateVariable', true);
  */
-import { CREATE_COURSE } from './constants';
+import omit from 'lodash/omit';
+import assign from 'lodash/assign';
+import mapValues from 'lodash/mapValues';
+import { CREATE_COURSE, DELETE_COURSE, STAR_COURSE } from './constants';
 
 // The initial state of the App
 const initialState = {
@@ -73,7 +76,6 @@ export function coursesReducer2(state = initialState, action) {
 export function coursesReducer3(state = initialState3, action) {
   switch (action.type) {
     case CREATE_COURSE:
-
       return {
         courses: state.courses.concat(action.course.id),
         coursesById: {
@@ -83,6 +85,19 @@ export function coursesReducer3(state = initialState3, action) {
             title: action.course.title,
           },
         },
+      };
+    case DELETE_COURSE:
+      return {
+        ...state,
+        courses: state.courses.filter((id) => id !== action.course.id),
+        coursesById: omit(state.coursesById, action.course.id),
+      };
+    case STAR_COURSE:
+      return {
+        ...state,
+        coursesById: mapValues(state.coursesById, (course) => course.id === action.course.id ?
+            assign({}, course, { starred: !course.starred }) :
+            course),
       };
 
     default:
